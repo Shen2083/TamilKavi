@@ -64,10 +64,14 @@
                 document.body.appendChild(textarea);
                 textarea.select();
                 try {
-                        document.execCommand('copy');
-                        alert('Poem copied to clipboard!');
+                        const success = document.execCommand('copy');
+                        if (success) {
+                                alert(text.includes('http') ? 'Share link copied to clipboard!' : 'Poem copied to clipboard!');
+                        } else {
+                                alert('Failed to copy. Please manually copy: ' + (text.includes('http') ? text : 'the poem text'));
+                        }
                 } catch (err) {
-                        alert('Failed to copy. Please manually select and copy the poem text.');
+                        alert('Failed to copy. Please manually copy: ' + (text.includes('http') ? text : 'the poem text'));
                 } finally {
                         document.body.removeChild(textarea);
                 }
@@ -99,14 +103,16 @@
                 url.searchParams.set('wantGloss', params.wantGloss);
                 url.searchParams.set('wantMeterNote', params.wantMeterNote);
                 
+                const urlString = url.toString();
+                
                 if (navigator.clipboard && navigator.clipboard.writeText) {
-                        navigator.clipboard.writeText(url.toString()).then(() => {
+                        navigator.clipboard.writeText(urlString).then(() => {
                                 alert('Share link copied to clipboard!');
                         }).catch(() => {
-                                alert('Failed to copy link. Please copy manually: ' + url.toString());
+                                fallbackCopyToClipboard(urlString);
                         });
                 } else {
-                        alert('Share link: ' + url.toString());
+                        fallbackCopyToClipboard(urlString);
                 }
         }
 </script>
