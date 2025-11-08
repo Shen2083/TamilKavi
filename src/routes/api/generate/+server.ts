@@ -3,20 +3,24 @@ import type { RequestHandler } from './$types';
 import { OPENAI_API_KEY } from '$env/static/private';
 
 export const POST: RequestHandler = async ({ request }) => {
-	try {
-		const { keywords, tone, classicalness, length, wantTranslit, wantGloss, wantMeterNote } = await request.json();
+        try {
+                const { keywords, tone, classicalness, length, wantTranslit, wantGloss, wantMeterNote } = await request.json();
 
-		if (!OPENAI_API_KEY) {
-			return json({ error: 'OpenAI API key not configured. Please add OPENAI_API_KEY to your secrets.' }, { status: 500 });
-		}
+                if (!OPENAI_API_KEY) {
+                        return json({ error: 'OpenAI API key not configured. Please add OPENAI_API_KEY to your secrets.' }, { status: 500 });
+                }
 
-		const lengthGuide = {
-			'Short': '2-3 lines',
-			'Standard': '4 lines (traditional Venba)',
-			'Extended': '5-6 lines'
-		}[length] || '4 lines';
+                if (!keywords || keywords.trim().length === 0) {
+                        return json({ error: 'Keywords are required to generate a poem.' }, { status: 400 });
+                }
 
-		const systemPrompt = `You are "Venba Studio," a Tamil classical poetry assistant.
+                const lengthGuide = {
+                        'Short': '2-3 lines',
+                        'Standard': '4 lines (traditional Venba)',
+                        'Extended': '5-6 lines'
+                }[length] || '4 lines';
+
+                const systemPrompt = `You are "Venba Studio," a Tamil classical poetry assistant.
 Write in the style of வேண்பா (Venba): compact cadence with elegant Tamil.
 Language: elegant Tamil; avoid slang; minimize Sanskrit unless tone requires.
 
@@ -33,9 +37,10 @@ Guidelines:
 - Match the requested emotional tone
 
 ${wantTranslit ? '\n\nAfter the poem, add a section:\n**Transliteration:**\n[Romanized version]' : ''}
-${wantGloss ? '\n\nThen add:\n**Gloss:**\n[Brief meaning in English]' : ''}`;
+${wantGloss ? '\n\nThen add:\n**Gloss:**\n[Brief meaning in English]' : ''}
+${wantMeterNote ? '\n\nFinally add:\n**Meter Note:**\n[One line describing the meter feel and prosody]' : ''}`;
 
-		const userPrompt = `Create a Tamil Venba poem with these specifications:
+                const userPrompt = `Create a Tamil Venba poem with these specifications:
 
 Keywords/Theme: ${keywords}
 Emotional Tone: ${tone}
@@ -44,43 +49,53 @@ Length: ${length}
 
 Generate an authentic Tamil classical poem now.`;
 
-		const response = await fetch('https://api.openai.com/v1/chat/completions', {
-			method: 'POST',
-			headers: {
-				'Authorization': `Bearer ${OPENAI_API_KEY}`,
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				model: 'gpt-4o-mini',
-				messages: [
-					{ role: 'system', content: systemPrompt },
-					{ role: 'user', content: userPrompt }
-				],
-				temperature: 0.8,
-				max_tokens: 500
-			})
-		});
+                const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                        method: 'POST',
+                        headers: {
+                                'Authorization': `Bearer ${OPENAI_API_KEY}`,
+                                'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                                model: 'gpt-4o-mini',
+                                messages: [
+                                        { role: 'system', content: systemPrompt },
+                                        { role: 'user', content: userPrompt }
+                                ],
+                                temperature: 0.8,
+                                max_tokens: 500
+                        })
+                });
 
-		if (!response.ok) {
-			const errorData = await response.json();
-			console.error('OpenAI API Error:', errorData);
-			return json({ 
-				error: `OpenAI API error: ${errorData.error?.message || 'Unknown error'}` 
-			}, { status: response.status });
-		}
+                if (!response.ok) {
+                        const errorData = await response.json();
+                        console.error('OpenAI API Error:', errorData);
+                        
+                        const errorMessage = errorData.error?.message || 'Unknown error';
+                        const isAuthError = response.status === 401 || response.status === 403;
+                        const isRateLimitError = response.status === 429;
+                        
+                        let userMessage = `OpenAI API error: ${errorMessage}`;
+                        if (isAuthError) {
+                                userMessage = 'Authentication failed. Please check your OPENAI_API_KEY.';
+                        } else if (isRateLimitError) {
+                                userMessage = 'Rate limit exceeded. Please try again in a moment.';
+                        }
+                        
+                        return json({ error: userMessage }, { status: response.status });
+                }
 
-		const data = await response.json();
-		const poemText = data.choices?.[0]?.message?.content;
+                const data = await response.json();
+                const poemText = data.choices?.[0]?.message?.content;
 
-		if (!poemText) {
-			return json({ error: 'No poem generated' }, { status: 500 });
-		}
+                if (!poemText) {
+                        return json({ error: 'No poem generated' }, { status: 500 });
+                }
 
-		return json({ poem: poemText.trim() });
-	} catch (error) {
-		console.error('Error generating poem:', error);
-		return json({ 
-			error: error instanceof Error ? error.message : 'Failed to generate poem' 
-		}, { status: 500 });
-	}
+                return json({ poem: poemText.trim() });
+        } catch (error) {
+                console.error('Error generating poem:', error);
+                return json({ 
+                        error: error instanceof Error ? error.message : 'Failed to generate poem' 
+                }, { status: 500 });
+        }
 };
