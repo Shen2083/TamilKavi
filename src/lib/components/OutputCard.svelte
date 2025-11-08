@@ -44,11 +44,32 @@
         const parsed = $derived(parsePoem(poem));
 
         async function copyToClipboard() {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                        try {
+                                await navigator.clipboard.writeText(poem);
+                                alert('Poem copied to clipboard!');
+                        } catch (err) {
+                                fallbackCopyToClipboard(poem);
+                        }
+                } else {
+                        fallbackCopyToClipboard(poem);
+                }
+        }
+
+        function fallbackCopyToClipboard(text: string) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
                 try {
-                        await navigator.clipboard.writeText(poem);
+                        document.execCommand('copy');
                         alert('Poem copied to clipboard!');
                 } catch (err) {
-                        alert('Failed to copy');
+                        alert('Failed to copy. Please manually select and copy the poem text.');
+                } finally {
+                        document.body.removeChild(textarea);
                 }
         }
 
