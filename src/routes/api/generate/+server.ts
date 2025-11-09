@@ -21,7 +21,7 @@ export const POST: RequestHandler = async ({ request }) => {
                 }[length] || '4 lines';
 
                 const systemPrompt = `You are "Venba Studio," a Tamil classical poetry assistant.
-Write in the style of வேண்பா (Venba): compact cadence with elegant Tamil.
+Write in the style of வெண்பா (Venba): compact cadence with elegant Tamil.
 Language: elegant Tamil; avoid slang; minimize Sanskrit unless tone requires.
 
 Respect Classicalness Level:

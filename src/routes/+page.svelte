@@ -105,7 +105,7 @@
                 </div>
 
                 <footer class="mt-16 text-center text-gray-500 text-sm">
-                        <p>வேண்பா (Venba) is a classical Tamil poetic form with compact meter and elegant expression</p>
+                        <p>வெண்பா (Venba) is a classical Tamil poetic form with compact meter and elegant expression</p>
                 </footer>
         </div>
 </div>

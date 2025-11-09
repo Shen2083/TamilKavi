@@ -1,7 +1,7 @@
 # VenbaCraft - Tamil Classical Poetry Generator
 
 ## Overview
-VenbaCraft is a SvelteKit web application that generates authentic Tamil classical poetry in the Venba (வேண்பா) style using OpenAI's GPT models. Users can customize the tone, classicalness level, and length of their poems, with optional transliteration and explanatory notes.
+VenbaCraft is a SvelteKit web application that generates authentic Tamil classical poetry in the Venba (வெண்பா) style using OpenAI's GPT models. Users can customize the tone, classicalness level, and length of their poems, with optional transliteration and explanatory notes.
 
 **Current Status:** MVP Complete (November 8, 2025)
 
