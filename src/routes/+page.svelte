@@ -117,8 +117,13 @@
 
 <div class="min-h-screen py-12 px-4">
         <div class="max-w-6xl mx-auto">
-                <nav class="flex justify-end gap-4 mb-8">
-                        <a href="/about" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">About வெண்பா</a>
+                <nav class="flex flex-wrap justify-end gap-3 mb-8 text-sm md:text-base">
+                        <a href="/learn" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">Learn</a>
+                        <a href="/gallery" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">Gallery</a>
+                        <a href="/glossary" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">Glossary</a>
+                        <a href="/guide" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">Guide</a>
+                        <a href="/faq" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">FAQ</a>
+                        <a href="/about" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">About</a>
                         <a href="/examples" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">Examples</a>
                 </nav>
                 
