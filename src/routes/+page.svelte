@@ -155,14 +155,40 @@
                                 {:else if poem}
                                         <OutputCard {poem} params={lastParams} onRegenerate={handleRegenerate} />
                                 {:else}
-                                        <div class="bg-white rounded-xl shadow-lg p-12 text-center">
-                                                <div class="text-6xl mb-4">📝</div>
-                                                <h3 class="text-xl font-semibold text-gray-700 mb-2">
-                                                        Ready to Create
-                                                </h3>
-                                                <p class="text-gray-500">
-                                                        Enter your keywords and preferences to generate your first Venba poem
-                                                </p>
+                                        <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+                                                <div class="text-center mb-8">
+                                                        <div class="text-6xl mb-4">📝</div>
+                                                        <h3 class="text-xl font-semibold text-gray-700 mb-3">
+                                                                Create Authentic வெண்பா Poetry
+                                                        </h3>
+                                                        <p class="text-gray-600 leading-relaxed">
+                                                                Describe the mood, theme, and length to generate a Venba poem.<br />
+                                                                <span class="text-sm text-orange-600 font-medium mt-2 inline-block">
+                                                                        Try: "காதல் + Serene + 70% Classical + Extended"
+                                                                </span>
+                                                        </p>
+                                                </div>
+                                                
+                                                <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg p-6">
+                                                        <ul class="space-y-3 text-left text-sm text-gray-700">
+                                                                <li class="flex items-start gap-2">
+                                                                        <span class="text-orange-600 font-bold">✓</span>
+                                                                        <span><strong>AI-powered authenticity:</strong> Generate classical Tamil poetry following 2,000-year-old meter rules</span>
+                                                                </li>
+                                                                <li class="flex items-start gap-2">
+                                                                        <span class="text-orange-600 font-bold">✓</span>
+                                                                        <span><strong>Full customization:</strong> Choose emotional tone, classicalness level (0-100), and length</span>
+                                                                </li>
+                                                                <li class="flex items-start gap-2">
+                                                                        <span class="text-orange-600 font-bold">✓</span>
+                                                                        <span><strong>Learning tools:</strong> Optional transliteration, English meanings, and meter analysis</span>
+                                                                </li>
+                                                                <li class="flex items-start gap-2">
+                                                                        <span class="text-orange-600 font-bold">✓</span>
+                                                                        <span><strong>Easy sharing:</strong> Download as image, copy text, or share via URL</span>
+                                                                </li>
+                                                        </ul>
+                                                </div>
                                         </div>
                                 {/if}
                         </div>
