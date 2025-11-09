@@ -13,9 +13,11 @@ VenbaCraft is a SvelteKit web application that generates authentic Tamil classic
   - Implemented sitemap.xml endpoint for search engines
   - Added robots.txt for crawler guidance
   - Added navigation links to About and Examples pages
-  - Configured prerendering for static routes
-  - Added social preview image for sharing
+  - Configured prerendering for static routes with proper SITE_URL config
+  - Added social preview image and favicon for sharing
   - Fixed spelling: வேண்பா → வெண்பா throughout app
+  - Fixed deployment prerendering error by adding favicon.png
+  - Added +page.ts files for proper static page generation
   
 - **2025-11-08:** Initial project setup
   - Created SvelteKit project with TypeScript
