@@ -2,6 +2,7 @@
         import PromptForm from '$lib/components/PromptForm.svelte';
         import OutputCard from '$lib/components/OutputCard.svelte';
         import { onMount } from 'svelte';
+        import { SITE_URL } from '$lib/config';
 
         let poem = $state('');
         let error = $state('');
@@ -55,14 +56,72 @@
                         generatePoem(lastParams);
                 }
         }
+
+        const canonicalUrl = SITE_URL;
+        const pageTitle = 'VenbaCraft – AI Tamil வெண்பா (Venba) Poetry Generator';
+        const pageDescription = 'Generate authentic Tamil classical poetry in வெண்பா (Venba) style with AI. Customize emotional tone, classicalness level, and length for beautiful traditional Tamil poems online.';
+        const previewImage = SITE_URL + '/social-preview.png';
 </script>
 
 <svelte:head>
-        <title>VenbaCraft - Tamil Classical Poetry Generator</title>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={previewImage} />
+        <meta property="og:locale" content="ta_IN" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:site_name" content="VenbaCraft" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={canonicalUrl} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={previewImage} />
+        
+        {@html `<script type="application/ld+json">${JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'WebApplication',
+                name: 'VenbaCraft',
+                description: 'AI-powered Tamil classical poetry generator for வெண்பா (Venba) style poems',
+                url: canonicalUrl,
+                applicationCategory: 'EducationalApplication',
+                operatingSystem: 'Web',
+                offers: {
+                        '@type': 'Offer',
+                        price: '0',
+                        priceCurrency: 'USD'
+                },
+                inLanguage: ['ta', 'en'],
+                potentialAction: {
+                        '@type': 'CreateAction',
+                        target: {
+                                '@type': 'EntryPoint',
+                                urlTemplate: canonicalUrl,
+                                actionPlatform: [
+                                        'http://schema.org/DesktopWebPlatform',
+                                        'http://schema.org/MobileWebPlatform'
+                                ]
+                        },
+                        result: {
+                                '@type': 'CreativeWork',
+                                name: 'Tamil Venba Poem'
+                        }
+                }
+        })}</script>`}
 </svelte:head>
 
 <div class="min-h-screen py-12 px-4">
         <div class="max-w-6xl mx-auto">
+                <nav class="flex justify-end gap-4 mb-8">
+                        <a href="/about" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">About வெண்பா</a>
+                        <a href="/examples" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">Examples</a>
+                </nav>
+                
                 <header class="text-center mb-12">
                         <h1 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600 mb-3 font-tamil">
                                 VenbaCraft

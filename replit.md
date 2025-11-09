@@ -6,6 +6,17 @@ VenbaCraft is a SvelteKit web application that generates authentic Tamil classic
 **Current Status:** MVP Complete (November 8, 2025)
 
 ## Recent Changes
+- **2025-11-09:** SEO Optimization & Content Pages
+  - Added comprehensive meta tags (Open Graph, Twitter cards, JSON-LD schema)
+  - Created About page with வெண்பா educational content and FAQs
+  - Created Examples page with curated sample poems
+  - Implemented sitemap.xml endpoint for search engines
+  - Added robots.txt for crawler guidance
+  - Added navigation links to About and Examples pages
+  - Configured prerendering for static routes
+  - Added social preview image for sharing
+  - Fixed spelling: வேண்பா → வெண்பா throughout app
+  
 - **2025-11-08:** Initial project setup
   - Created SvelteKit project with TypeScript
   - Configured Tailwind CSS for styling
@@ -66,6 +77,7 @@ src/
 
 ### Environment Variables
 - `OPENAI_API_KEY` - Required for poem generation (stored in Replit Secrets)
+- `VITE_SITE_URL` - Base URL for SEO meta tags (defaults to https://venbacraft.repl.co)
 
 ## User Preferences
 None specified yet.
