@@ -37,7 +37,7 @@
                         questions: [
                                 {
                                         q: 'How does VenbaCraft generate Venba poetry?',
-                                        a: 'VenbaCraft uses advanced AI language models (specifically GPT-4o-mini) trained on vast amounts of text including Tamil literature. The system is given detailed instructions about Venba meter patterns, classical Tamil vocabulary, and prosody rules. It generates poems that follow traditional Venba structures while incorporating your chosen keywords, tone, and classicalness level.'
+                                        a: 'VenbaCraft uses advanced AI language models trained on vast amounts of text including Tamil literature. The system is given detailed instructions about Venba meter patterns, classical Tamil vocabulary, and prosody rules. It generates poems that follow traditional Venba structures while incorporating your chosen keywords, tone, and classicalness level.'
                                 },
                                 {
                                         q: 'Can I enter keywords in English?',
@@ -111,7 +111,7 @@
                                 },
                                 {
                                         q: 'What AI model powers VenbaCraft?',
-                                        a: 'VenbaCraft uses OpenAI\'s GPT-4o-mini model, which has been trained on diverse text including Tamil literature. Through carefully crafted prompts and instructions about Venba prosody, the model generates authentic-sounding Tamil classical poetry. The system balances quality, speed, and cost-effectiveness.'
+                                        a: 'VenbaCraft uses OpenAI\'s advanced language models, which have been trained on diverse text including Tamil literature. Through carefully crafted prompts and instructions about Venba prosody, the AI generates authentic-sounding Tamil classical poetry. The system balances quality, speed, and cost-effectiveness.'
                                 },
                                 {
                                         q: 'Can I contribute to VenbaCraft or report issues?',
