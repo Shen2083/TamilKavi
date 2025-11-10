@@ -65,7 +65,7 @@
                                 { tamil: 'யாப்பு', romanized: 'Yāppu', definition: 'Prosody or metrics - the systematic study and rules of poetic meter in Tamil.' },
                                 { tamil: 'மாத்திரை', romanized: 'Māttirai', definition: 'Unit of time (mora). Ner = 1 mātrā, Nirai = 2 mātrā. The basic temporal unit of meter.' },
                                 { tamil: 'அளபெடை', romanized: 'Aḷapeḍai', definition: 'Metrical lengthening of syllables for rhythmic purposes in poetry.' },
-                                { tamil: 'குற்று', romanized: 'Kuṯṟu', definition: 'Short vowel sounds (அ, இ, உ, எ, ஒ) forming ner syllables.' },
+                                { tamil: 'குறில்', romanized: 'Kuṟil', definition: 'Short vowel sounds (அ, இ, உ, எ, ஒ) forming ner syllables.' },
                                 { tamil: 'நெடில்', romanized: 'Neḍil', definition: 'Long vowel sounds (ஆ, ஈ, ஊ, ஏ, ஓ, ஐ, ஔ) forming nirai syllables.' }
                         ]
                 },
