@@ -111,7 +111,7 @@
                                 },
                                 {
                                         q: 'What AI model powers VenbaCraft?',
-                                        a: 'VenbaCraft uses OpenAI\'s advanced language models, which have been trained on diverse text including Tamil literature. Through carefully crafted prompts and instructions about Venba prosody, the AI generates authentic-sounding Tamil classical poetry. The system balances quality, speed, and cost-effectiveness.'
+                                        a: 'VenbaCraft uses advanced AI language models trained on diverse text including Tamil literature. Through carefully crafted prompts and instructions about Venba prosody, the AI generates authentic-sounding Tamil classical poetry. The system balances quality, speed, and cost-effectiveness.'
                                 },
                                 {
                                         q: 'Can I contribute to VenbaCraft or report issues?',
