@@ -1,7 +1,8 @@
 import type { RequestHandler } from './$types';
+import { SITE_URL } from '$lib/config';
 
-export const GET: RequestHandler = async ({ url }) => {
-        const baseUrl = url.origin;
+export const GET: RequestHandler = async () => {
+        const baseUrl = SITE_URL;
         
         const pages = [
                 { path: '', priority: '1.0', changefreq: 'daily' },

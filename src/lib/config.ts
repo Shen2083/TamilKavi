@@ -1,1 +1,1 @@
-export const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://venbacraft.repl.co';
+export const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://tamilkavi.co';
