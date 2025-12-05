@@ -46,7 +46,7 @@
                                         <h2 class="text-3xl font-semibold text-gray-800 mt-8 mb-4">What is வெண்பா (Venba)?</h2>
                                         <p class="text-gray-700 leading-relaxed mb-4">
                                                 வெண்பா (Venba) is one of the most important and ancient poetic meters in Tamil literature, dating back over 2,000 years. 
-                                                The name comes from <strong>வெண்</strong> (veṇ, meaning "white" or "pure") and <strong>பா</strong> (pā, meaning "song" or "poetry"), 
+                                                The name comes from <strong>வெண்</strong> (veṇ, meaning "pure") and <strong>பா</strong> (pā, meaning "song" or "poetry"), 
                                                 symbolizing the purity and elegance of this form.
                                         </p>
                                         <p class="text-gray-700 leading-relaxed">
