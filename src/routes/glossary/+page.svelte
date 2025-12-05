@@ -10,7 +10,7 @@
                 {
                         category: 'Basic Concepts',
                         terms: [
-                                { tamil: 'வெண்பா', romanized: 'Veṇpā', definition: 'A classical Tamil poetic form characterized by strict metrical rules based on syllable patterns. The name means "white/pure song".' },
+                                { tamil: 'வெண்பா', romanized: 'Veṇpā', definition: 'A classical Tamil poetic form characterized by strict metrical rules based on syllable patterns. The name means "pure song".' },
                                 { tamil: 'பா', romanized: 'Pā', definition: 'Poetry or song in Tamil. The fundamental unit of Tamil poetic composition.' },
                                 { tamil: 'அடி', romanized: 'Aḍi', definition: 'Line or verse. The basic structural unit of Tamil poetry. Venba poems contain 2-12 lines.' },
                                 { tamil: 'சீர்', romanized: 'Sīr / Seer', definition: 'Metrical foot consisting of 2-3 syllables arranged in specific patterns. The building block of Tamil meter.' }
